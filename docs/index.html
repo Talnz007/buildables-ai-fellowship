@@ -1,92 +1,46 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
     <title>Buildables AI Fellowship - Resources</title>
-
     <style>
-
         body { font-family: Arial, sans-serif; margin: 40px; }
-
         .week-card { border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; }
-
         .week-title { color: #1976d2; font-size: 1.3em; margin-bottom: 10px; }
-
         .resource-link { display: inline-block; margin: 5px 10px 5px 0; padding: 8px 16px; 
-
-                        background: #f5f5f5; border-radius: 4px; text-decoration: none; }
-
+                         background: #f5f5f5; border-radius: 4px; text-decoration: none; }
     </style>
-
 </head>
-
 <body>
-
     <h1>🚀 Buildables AI Fellowship Resources</h1>
-
     <div id="weeks-container">
-
-            </div>
-
+    </div>
     <script>
-
         // Auto-generate week cards
-
         const weeks = [
-
             {title: "Week 1: LLM Basics", folder: "week-01-llm-basics"},
-
             {title: "Week 2: Conversational LLMs", folder: "week-02-conversational-llms"},
-
             {title: "Week 3: Advanced Prompting", folder: "week-03-advanced-prompting"},
-
             {title: "Week 4: LLM API Usage", folder: "week-04-api-usage"},
-
             {title: "Week 5: LLM Agents & Retrieval", folder: "week-05-agents-retrieval"},
-
             {title: "Week 6: PDF & Document RAG", folder: "week-06-pdf-rag"},
-
             {title: "Week 7: Multimodal LLMs", folder: "week-07-multimodal"},
-
             {title: "Week 8: No-code AI Automation", folder: "week-08-nocode-automation"},
-
             {title: "Week 9: Building & Deploying LLM Apps", folder: "week-09-deployment"},
-
             {title: "Week 10: Advanced RAG & Fine-Tuning", folder: "week-10-advanced-rag"},
-
             {title: "Week 11: Capstone Projects (Part 1)", folder: "week-11-capstone-part1"},
-
             {title: "Week 12: Capstone Projects (Part 2)", folder: "week-12-capstone-part2"},
-
         ];
-
         
-
         const container = document.getElementById('weeks-container');
-
         weeks.forEach(week => {
-
             container.innerHTML += `
-
                 <div class="week-card">
-
                     <div class="week-title">${week.title}</div>
-
-                    <a href="../${week.folder}/resources/" class="resource-link">📚 Resources</a>
-
-                    <a href="../${week.folder}/projects/" class="resource-link">💻 Projects</a>
-
-                    <a href="../${week.folder}/assignments/" class="resource-link">📝 Assignments</a>
-
+                    <a href="https://github.com/Talnz007/buildables-ai-fellowship/tree/main/${week.folder}/resources/" class="resource-link">📚 Resources</a>
+                    <a href="https://github.com/Talnz007/buildables-ai-fellowship/tree/main/${week.folder}/projects/" class="resource-link">💻 Projects</a>
+                    <a href="https://github.com/Talnz007/buildables-ai-fellowship/tree/main/${week.folder}/assignments/" class="resource-link">📝 Assignments</a>
                 </div>`;
-
         });
-
     </script>
-
 </body>
-
 </html>
-
