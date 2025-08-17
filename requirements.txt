@@ -1,0 +1,10 @@
+# Primary LLM and NLP libraries
+google-genai
+transformers
+
+# General purpose libraries for web requests, etc.
+requests
+numpy
+pandas
+jupyterlab
+
