@@ -1,7 +1,5 @@
 # Week 3 – Advanced Prompting
 
-**Dates:** Aug 15–21
-
 ## Topic
 Advanced prompt techniques: few-shot prompting and Chain-of-Thought (CoT).
 
