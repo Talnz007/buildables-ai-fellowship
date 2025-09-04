@@ -21,8 +21,8 @@
 
 4. **How ChatGPT Works**
    - Duration: 18 minutes
-   - Link: [YouTube](https://www.youtube.com/watch?v=e0aKI2GGZNg)
-   - Key Topics: Training process, RLHF
+   - Link: [YouTube](https://www.youtube.com/watch?v=bSvTVREwSNw)
+   - Key Topics: Architecture, System Design
 
 ### Tokenization Deep Dive
 5. **Understanding Tokenization in NLP**
