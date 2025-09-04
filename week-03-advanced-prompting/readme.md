@@ -1,35 +1,29 @@
-# Week 3: Advanced Prompt Techniques
+# Week 3 – Advanced Prompting
 
-## 🎯 Topics & Objectives
+**Dates:** Aug 15–21
 
-### Topic
-[cite_start]Advanced prompt techniques, focusing on **few-shot** and **Chain-of-Thought (CoT)** prompting. 
+## Topic
+Advanced prompt techniques: few-shot prompting and Chain-of-Thought (CoT).
 
-### Learning Objectives
-By the end of this week, you will be able to:
-1.  [cite_start]**Utilize few-shot prompting** by including examples in your prompts to guide model behavior. 
-2.  [cite_start]**Apply Chain-of-Thought (CoT) prompting** to elicit step-by-step reasoning from large language models. 
-3.  **Compare the performance** of zero-shot, few-shot, and CoT prompts on reasoning-based tasks.
-4.  **Develop a systematic approach** to evaluating and improving prompt effectiveness.
+## Objectives
+- Learn how to use few-shot prompting by including examples in prompts.
+- Apply Chain-of-Thought (CoT) prompting to improve reasoning ability.
+- Understand how zero-shot, few-shot, and CoT prompting compare in practice.
 
-## 💻 Hands-on Project: Prompt Comparison Lab
+## Hands-on Project
+- Test a logic puzzle with:
+  1. Zero-shot prompt
+  2. Few-shot prompt (with examples)
+  3. CoT prompt (“think step by step”)
+- Compare the model’s accuracy across these approaches.
+- Prompt the model: *“Explain your reasoning”* to practice CoT responses.
 
-[cite_start]The main project for this week is to conduct a comparative analysis of different prompting strategies. 
+## Relevant Links & Resources
+- [OpenAI Prompting Guide – Zero- & Few-Shot Examples](https://platform.openai.com/docs/guides/prompting)  
+- [Best Practices for Prompt Engineering (OpenAI)](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api#:~:text=5.%20Start%20with%20zero,tune)  
+- [Chain-of-Thought Prompting Paper (ICLR 2022)](https://arxiv.org/abs/2201.11903)
 
-### Core Tasks
-1.  [cite_start]**Test a Logic Puzzle**: Implement and test a logic puzzle using three distinct prompting methods: 
-    * [cite_start]**(a) Zero-shot prompt**: Ask the model for a direct answer without examples. 
-    * [cite_start]**(b) Few-shot prompt**: Provide 2-3 solved examples before presenting the new problem. 
-    * [cite_start]**(c) Chain-of-Thought (CoT) prompt**: Explicitly ask the model to "think step by step" or explain its reasoning. 
-2.  [cite_start]**Compare Accuracy**: Measure and compare the accuracy of the outputs from each prompting method. 
-3.  [cite_start]**Practice CoT**: Use phrases like "Explain your reasoning" to encourage the model to produce a detailed thought process. 
+## Supplementary Activities
+- Create a rubric to evaluate and compare model outputs.  
+- Peer review: trade prompts with classmates and analyze differences.  
 
-## 🔗 Relevant Links & Resources
-
-* [cite_start]**OpenAI Prompting Guide**: Review official documentation for examples of zero-shot and few-shot prompting. 
-* [cite_start]**Chain-of-Thought Paper (ICLR 2022)**: Read the original research paper that introduced CoT prompting to understand its foundations. 
-
-## 📚 Supplementary Materials & Activities
-
-* [cite_start]**Create an Evaluation Rubric**: Develop a rubric to systematically score and compare the quality of the model's outputs. 
-* [cite_start]**Peer Review Session**: Exchange prompts with classmates to analyze different approaches and examine the resulting differences in model responses.
