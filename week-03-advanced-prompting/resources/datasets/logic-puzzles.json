@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "puzzle": "Alice is older than Bob. Bob is older than Charlie. Who is the youngest?",
+    "expected_answer": "Charlie"
+  },
+  {
+    "id": 2,
+    "puzzle": "There are three boxes: one with apples, one with oranges, one mixed. All are mislabeled. You can take one fruit from one box. How do you correctly label all?",
+    "expected_answer": "Pick from the 'mixed' box; use that to correct labels."
+  },
+  {
+    "id": 3,
+    "puzzle": "If all Bloops are Razzies and all Razzies are Lazzies, are all Bloops definitely Lazzies?",
+    "expected_answer": "Yes"
+  }
+]
+

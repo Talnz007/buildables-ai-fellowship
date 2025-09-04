@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "question": "Translate 'Good morning, how are you?' into French.",
+    "expected_answer": "Bonjour, comment ça va?"
+  },
+  {
+    "id": 2,
+    "question": "Summarize the text: 'The stock market rose today due to gains in the technology sector.'",
+    "expected_answer": "Tech sector drives market gains."
+  },
+  {
+    "id": 3,
+    "question": "Classify the sentiment: 'I am extremely happy with the service.'",
+    "expected_answer": "Positive"
+  }
+]
+

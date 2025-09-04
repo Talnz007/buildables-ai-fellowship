@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "problem": "A train travels 60 km in 1 hour. How far will it go in 4 hours?",
+    "expected_answer": "240 km"
+  },
+  {
+    "id": 2,
+    "problem": "What is 23 × 17?",
+    "expected_answer": "391"
+  },
+  {
+    "id": 3,
+    "problem": "If a pizza is cut into 8 equal slices and you eat 3, what fraction remains?",
+    "expected_answer": "5/8"
+  }
+]
+

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "task": "If John is taller than Mary, and Mary is taller than Sam, who is the tallest?",
+    "expected_answer": "John"
+  },
+  {
+    "id": 2,
+    "task": "A farmer has 5 cows, each produces 8 liters of milk per day. How much milk in total per day?",
+    "expected_answer": "40 liters"
+  },
+  {
+    "id": 3,
+    "task": "If it is raining, the ground will be wet. The ground is wet. Does it mean it rained?",
+    "expected_answer": "Not necessarily (other causes possible)."
+  }
+]
+
