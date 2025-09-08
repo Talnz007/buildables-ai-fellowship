@@ -1,46 +1,573 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buildables AI Fellowship - Resources</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        .week-card { border: 1px solid #ddd; margin: 20px 0; padding: 20px; border-radius: 8px; }
-        .week-title { color: #1976d2; font-size: 1.3em; margin-bottom: 10px; }
-        .resource-link { display: inline-block; margin: 5px 10px 5px 0; padding: 8px 16px; 
-                         background: #f5f5f5; border-radius: 4px; text-decoration: none; }
+        :root {
+            --primary-color: #1976d2;
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --border-color: #e0e0e0;
+            --hover-color: #f5f5f5;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --accent-green: #4caf50;
+            --accent-blue: #2196f3;
+            --accent-orange: #ff9800;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #ffffff;
+            --border-color: #333333;
+            --hover-color: #2a2a2a;
+            --shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), #1565c0);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .github-link {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .github-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .controls {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-container {
+            position: relative;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            font-size: 1rem;
+            background: var(--card-bg);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+        }
+
+        .progress-container {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            min-width: 200px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: var(--border-color);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green), var(--primary-color));
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.75rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--hover-color);
+            transform: rotate(180deg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .weeks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .week-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .week-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .week-card.hidden {
+            display: none;
+        }
+
+        .week-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .week-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .collapse-icon {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .week-card.collapsed .collapse-icon {
+            transform: rotate(-90deg);
+        }
+
+        .week-content {
+            padding: 1.5rem;
+            max-height: 500px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .week-card.collapsed .week-content {
+            max-height: 0;
+            padding: 0 1.5rem;
+        }
+
+        .resource-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .resource-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--hover-color);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .resource-link:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        .resource-link.resources {
+            border-left-color: var(--accent-green);
+        }
+
+        .resource-link.projects {
+            border-left-color: var(--accent-blue);
+        }
+
+        .resource-link.assignments {
+            border-left-color: var(--accent-orange);
+        }
+
+        .resource-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .resource-icon.resources { color: var(--accent-green); }
+        .resource-icon.projects { color: var(--accent-blue); }
+        .resource-icon.assignments { color: var(--accent-orange); }
+
+        .checkbox-container {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+        }
+
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-color);
+            opacity: 0.7;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-container {
+                min-width: unset;
+            }
+            
+            .weeks-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .week-content {
+                padding: 1rem;
+            }
+            
+            .resource-links {
+                gap: 0.75rem;
+            }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <h1>🚀 Buildables AI Fellowship Resources</h1>
-    <div id="weeks-container">
-    </div>
-    <script>
-        // Auto-generate week cards
-        const weeks = [
-            {title: "Week 1: LLM Basics", folder: "week-01-llm-basics"},
-            {title: "Week 2: Conversational LLMs", folder: "week-02-conversational-llms"},
-            {title: "Week 3: Advanced Prompting", folder: "week-03-advanced-prompting"},
-            {title: "Week 4: LLM API Usage", folder: "week-04-api-usage"},
-            {title: "Week 5: LLM Agents & Retrieval", folder: "week-05-agents-retrieval"},
-            {title: "Week 6: PDF & Document RAG", folder: "week-06-pdf-rag"},
-            {title: "Week 7: Multimodal LLMs", folder: "week-07-multimodal"},
-            {title: "Week 8: No-code AI Automation", folder: "week-08-nocode-automation"},
-            {title: "Week 9: Building & Deploying LLM Apps", folder: "week-09-deployment"},
-            {title: "Week 10: Advanced RAG & Fine-Tuning", folder: "week-10-advanced-rag"},
-            {title: "Week 11: Capstone Projects (Part 1)", folder: "week-11-capstone-part1"},
-            {title: "Week 12: Capstone Projects (Part 2)", folder: "week-12-capstone-part2"},
-        ];
+    <header class="header">
+        <h1><i class="fas fa-rocket"></i> Buildables AI Fellowship</h1>
+        <p class="subtitle">AI Track Resources & Learning Materials</p>
+        <a href="https://github.com/Talnz007/buildables-ai-fellowship/" class="github-link" target="_blank">
+            <i class="fab fa-github"></i> View Repository
+        </a>
+    </header>
+
+    <div class="controls">
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search weeks (e.g., RAG, API, LLM)..." id="searchBox">
+            <i class="fas fa-search search-icon"></i>
+        </div>
         
-        const container = document.getElementById('weeks-container');
-        weeks.forEach(week => {
-            container.innerHTML += `
-                <div class="week-card">
-                    <div class="week-title">${week.title}</div>
-                    <a href="https://github.com/Talnz007/buildables-ai-fellowship/tree/main/${week.folder}/resources/" class="resource-link">📚 Resources</a>
-                    <a href="https://github.com/Talnz007/buildables-ai-fellowship/tree/main/${week.folder}/projects/" class="resource-link">💻 Projects</a>
-                    <a href="https://github.com/Talnz007/buildables-ai-fellowship/tree/main/${week.folder}/assignments/" class="resource-link">📝 Assignments</a>
-                </div>`;
+        <div class="progress-container">
+            <div>
+                <i class="fas fa-chart-line"></i> Progress: <span id="progressText">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="weeks-grid" id="weeksContainer">
+        </div>
+        
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>No weeks found</h3>
+            <p>Try adjusting your search terms</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 Buildables Fellowship AI Track | Built with ❤️ for learning</p>
+    </footer>
+
+    <script>
+        // Week data
+        const weeks = [
+            {title: "Week 1: LLM Basics", folder: "week-01-llm-basics", keywords: ["basics", "fundamentals", "introduction"]},
+            {title: "Week 2: Conversational LLMs", folder: "week-02-conversational-llms", keywords: ["conversation", "chat", "dialogue"]},
+            {title: "Week 3: Advanced Prompting", folder: "week-03-advanced-prompting", keywords: ["prompting", "advanced", "techniques"]},
+            {title: "Week 4: LLM API Usage", folder: "week-04-api-usage", keywords: ["api", "integration", "usage"]},
+            {title: "Week 5: LLM Agents & Retrieval", folder: "week-05-agents-retrieval", keywords: ["agents", "retrieval", "automation"]},
+            {title: "Week 6: PDF & Document RAG", folder: "week-06-pdf-rag", keywords: ["rag", "pdf", "documents", "retrieval"]},
+            {title: "Week 7: Multimodal LLMs", folder: "week-07-multimodal", keywords: ["multimodal", "vision", "images"]},
+            {title: "Week 8: No-code AI Automation", folder: "week-08-nocode-automation", keywords: ["nocode", "automation", "workflows"]},
+            {title: "Week 9: Building & Deploying LLM Apps", folder: "week-09-deployment", keywords: ["deployment", "building", "apps", "production"]},
+            {title: "Week 10: Advanced RAG & Fine-Tuning", folder: "week-10-advanced-rag", keywords: ["rag", "fine-tuning", "advanced"]},
+            {title: "Week 11: Capstone Projects (Part 1)", folder: "week-11-capstone-part1", keywords: ["capstone", "projects", "final"]},
+            {title: "Week 12: Capstone Projects (Part 2)", folder: "week-12-capstone-part2", keywords: ["capstone", "projects", "final"]},
+        ];
+
+        // State management
+        let progress = JSON.parse(localStorage.getItem('fellowshipProgress') || '{}');
+        let theme = localStorage.getItem('fellowshipTheme') || 'light';
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTheme();
+            renderWeeks();
+            setupEventListeners();
+            updateProgress();
         });
+
+        function initializeTheme() {
+            document.documentElement.setAttribute('data-theme', theme);
+            const themeIcon = document.querySelector('#themeToggle i');
+            themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        function renderWeeks() {
+            const container = document.getElementById('weeksContainer');
+            container.innerHTML = '';
+
+            weeks.forEach((week, index) => {
+                const weekCard = createWeekCard(week, index);
+                container.appendChild(weekCard);
+            });
+        }
+
+        function createWeekCard(week, index) {
+            const card = document.createElement('div');
+            card.className = 'week-card';
+            card.setAttribute('data-week', index);
+            
+            const weekKey = `week-${index}`;
+            const weekProgress = progress[weekKey] || {resources: false, projects: false, assignments: false};
+
+            card.innerHTML = `
+                <div class="week-header" onclick="toggleWeek(${index})">
+                    <h3 class="week-title">${week.title}</h3>
+                    <i class="fas fa-chevron-down collapse-icon"></i>
+                </div>
+                <div class="week-content">
+                    <div class="resource-links">
+                        <a href="https://github.com/Talnz007/buildables-ai-fellowship/tree/main/${week.folder}/resources/" 
+                           class="resource-link resources" target="_blank">
+                            <i class="fas fa-book resource-icon resources"></i>
+                            <span>Resources</span>
+                        </a>
+                        <a href="https://github.com/Talnz007/buildables-ai-fellowship/tree/main/${week.folder}/projects/" 
+                           class="resource-link projects" target="_blank">
+                            <i class="fas fa-code resource-icon projects"></i>
+                            <span>Projects</span>
+                        </a>
+                        <a href="https://github.com/Talnz007/buildables-ai-fellowship/tree/main/${week.folder}/assignments/" 
+                           class="resource-link assignments" target="_blank">
+                            <i class="fas fa-pen resource-icon assignments"></i>
+                            <span>Assignments</span>
+                        </a>
+                    </div>
+                    <div class="checkbox-container">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="resources-${index}" 
+                                   ${weekProgress.resources ? 'checked' : ''}
+                                   onchange="updateCheckbox('${weekKey}', 'resources', this.checked)">
+                            <label for="resources-${index}">Resources completed</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="projects-${index}" 
+                                   ${weekProgress.projects ? 'checked' : ''}
+                                   onchange="updateCheckbox('${weekKey}', 'projects', this.checked)">
+                            <label for="projects-${index}">Projects completed</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="assignments-${index}" 
+                                   ${weekProgress.assignments ? 'checked' : ''}
+                                   onchange="updateCheckbox('${weekKey}', 'assignments', this.checked)">
+                            <label for="assignments-${index}">Assignments completed</label>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        function setupEventListeners() {
+            // Search functionality
+            document.getElementById('searchBox').addEventListener('input', handleSearch);
+            
+            // Theme toggle
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+        }
+
+        function toggleWeek(index) {
+            const card = document.querySelector(`[data-week="${index}"]`);
+            card.classList.toggle('collapsed');
+        }
+
+        function handleSearch(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const weekCards = document.querySelectorAll('.week-card');
+            const noResults = document.getElementById('noResults');
+            let visibleCount = 0;
+
+            weekCards.forEach((card, index) => {
+                const week = weeks[index];
+                const matchesTitle = week.title.toLowerCase().includes(searchTerm);
+                const matchesKeywords = week.keywords.some(keyword => 
+                    keyword.toLowerCase().includes(searchTerm)
+                );
+
+                if (searchTerm === '' || matchesTitle || matchesKeywords) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        function toggleTheme() {
+            theme = theme === 'light' ? 'dark' : 'light';
+            localStorage.setItem('fellowshipTheme', theme);
+            initializeTheme();
+        }
+
+        function updateCheckbox(weekKey, type, checked) {
+            if (!progress[weekKey]) {
+                progress[weekKey] = {resources: false, projects: false, assignments: false};
+            }
+            progress[weekKey][type] = checked;
+            localStorage.setItem('fellowshipProgress', JSON.stringify(progress));
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const totalItems = weeks.length * 3; // 3 items per week
+            let completedItems = 0;
+
+            Object.values(progress).forEach(weekProgress => {
+                if (weekProgress.resources) completedItems++;
+                if (weekProgress.projects) completedItems++;
+                if (weekProgress.assignments) completedItems++;
+            });
+
+            const progressPercentage = Math.round((completedItems / totalItems) * 100);
+            
+            document.getElementById('progressText').textContent = `${progressPercentage}%`;
+            document.getElementById('progressFill').style.width = `${progressPercentage}%`;
+        }
+
+        // Collapse all weeks by default on mobile
+        if (window.innerWidth <= 768) {
+            setTimeout(() => {
+                document.querySelectorAll('.week-card').forEach(card => {
+                    card.classList.add('collapsed');
+                });
+            }, 100);
+        }
     </script>
 </body>
 </html>
