@@ -1,40 +1,75 @@
-# Week 4 Assignment: News Article Summarizer & Q&A Tool
+# Week 4 Assignment: Build Your Own AI News Summarizer & Q&A Tool 🚀
 
-## Objective
+## 🎯 Objective
 
-Your goal is to build a Python script that uses a Large Language Model (LLM) API (either OpenAI or Google Gemini) to perform two key tasks:
-1.  [cite_start]Summarize a given news article[cite: 3].
-2.  [cite_start]Answer specific questions about the content of that article[cite: 3].
+This week, you’ll build a Python project that uses a Large Language Model (LLM) API (OpenAI or Google Gemini) to:
+1. Summarize a news article of your choice.  
+2. Answer questions about that article.  
+3. Experiment with model parameters to see how output changes.  
 
-[cite_start]This project will give you hands-on experience with making API calls, processing text, and manipulating model parameters to change the output[cite: 3].
+Pick articles from a topic you actually enjoy (tech, sports, entertainment, etc.) so this feels fun and not just homework.
 
-## Project Requirements
+---
 
-### Part 1: Article Summarization
+## 🛠️ Project Requirements
 
-1.  **Choose an Article**: Find a news article online (e.g., from BBC News, Reuters, TechCrunch).
-2.  **Write a Script**: Create a Python script (`summarizer.py`).
-3.  **API Call**: In your script, make an API call to an LLM. [cite_start]Your prompt should instruct the model to summarize the article you chose[cite: 3].
-    * **Prompt Example**: "Please summarize the following news article in three concise sentences: [Paste article text here]"
-4.  **Print the Output**: Display the original article length (in characters or words) and the generated summary.
+### Part 1: Summarization Engine
+1. **Choose an Article**  
+   Select a news article (BBC, Reuters, TechCrunch, ESPN, etc.) and copy its text into your script.  
 
-### Part 2: Question Answering
+2. **Create the Script**  
+   Write a Python script called `summarizer.py`.  
 
-1.  **Extend Your Script**: Add functionality to ask at least three questions about the article.
-2.  **Craft Q&A Prompts**: For each question, create a new prompt that includes both the question and the full article text.
-    * [cite_start]**Prompt Example**: "Based on the article provided, what are the key points? [Paste article text here]" [cite: 3]
-3.  **Display Results**: Print each question followed by the model's answer.
+3. **API Call**  
+   Send the article text to an LLM API and ask for a 3–4 sentence summary.  
 
-### Part 3: Experiment with Parameters
+4. **Output**  
+   Print both:  
+   - Original article length (words or characters)  
+   - The generated summary  
 
-1.  **Vary Temperature**: Run your summarization script on the same article three times with different `temperature` settings:
-    * `temperature = 0.1` (Very deterministic, factual)
-    * `temperature = 0.7` (Balanced, creative)
-    * `temperature = 1.0` (Highly creative, potentially less accurate)
-2.  [cite_start]**Record Observations**: In a separate markdown file named `observations.md`, write a few sentences describing how the summary changed with each temperature setting[cite: 3]. Which one produced the best result?
+---
 
-## Submission
+### Part 2: Interactive Q&A
+1. **Extend Your Script**  
+   After summarizing, allow the user to ask at least **3 questions** about the article.  
 
-Please submit the following files:
-* `summarizer.py` (your completed Python script)
-* `observations.md` (your notes on parameter tuning)
+2. **Craft Prompts**  
+   Each Q&A should include both the question and the article text.  
+   Example:  
+```
+
+Based on the article below, \[QUESTION]?
+Article: \[ARTICLE TEXT HERE]
+
+```
+
+3. **Display Results**  
+Print each question followed by the model’s answer.  
+
+---
+
+### Part 3: Experiment with Parameters 🎛️
+1. **Run with Different Temperatures**  
+Generate summaries three times on the same article:  
+- `0.1` (deterministic, robotic)  
+- `0.7` (balanced)  
+- `1.0` (creative, maybe chaotic)  
+
+2. **Record Observations**  
+In a file called `observations.md`, describe how the summaries changed.  
+Note which temperature gave the most useful/fun results.  
+
+---
+
+## 💡 Bonus Challenge (Optional)
+- Turn your script into a **CLI tool** where the user pastes an article URL and chats with it.  
+- Add a **fun mode** where the summary comes in the style of a pirate, comedian, or sports commentator.  
+- Wrap it in a simple Flask/Streamlit app.  
+
+---
+
+## 📦 Submission
+Submit the following:  
+- `summarizer.py` (your Python script)  
+- `observations.md` (your notes on parameter tuning)  

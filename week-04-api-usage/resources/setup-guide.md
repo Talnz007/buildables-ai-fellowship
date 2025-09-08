@@ -64,5 +64,5 @@ pip install openai
 ### For Google Gemini:
 
 ```bash
-pip install google-generativeai
+pip install google-genai
 ```

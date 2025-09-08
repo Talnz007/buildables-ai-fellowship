@@ -1,12 +1,12 @@
 # Understanding Key API Parameters
 
-[cite_start]When you make an API call to an LLM, you can include several parameters to influence how the model generates a response[cite: 3]. Mastering these parameters is key to getting the high-quality, consistent output you need.
+When you make an API call to an LLM, you can include several parameters to influence how the model generates a response. <!--cite: 3--> Mastering these parameters is key to getting the high-quality, consistent output you need.
 
 Here are the most common ones:
 
 ### `temperature`
 
-[cite_start]This parameter controls the randomness of the model's output[cite: 3]. It is usually a float value between 0.0 and 2.0.
+This parameter controls the randomness of the model's output. <!--cite: 3--> It is usually a float value between 0.0 and 2.0.
 
 * **Low Temperature (e.g., `0.0` - `0.3`)**: The model becomes more deterministic and focused. It will almost always pick the most likely next word.
     * **Use Case**: Best for tasks that require factual, concise, and predictable answers, like summarization, classification, or fact-based Q&A.
@@ -33,3 +33,4 @@ This is an alternative to `temperature` for controlling randomness. It tells the
 You can provide a list of character sequences that, if generated, will cause the model to immediately stop.
 
 * **Use Case**: This is useful for preventing the model from generating irrelevant text or for forcing it to stop at a natural endpoint, like a newline character or a specific phrase.
+
