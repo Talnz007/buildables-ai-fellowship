@@ -13,7 +13,7 @@ Identify a **real business or personal productivity problem** that can be solved
 ## Deliverables
 
 ### 1. Video Demo (5-7 minutes)
-**Upload Deadline**: September 3, 11:59 PM
+**Upload Deadline**: September 21, 11:59 PM
 
 Your video must cover:
 - **Problem Identification** (1 min): What real problem are you solving? Who has this problem?
@@ -23,7 +23,6 @@ Your video must cover:
 - **Technical Challenges** (1 min): Key problems you solved and how
 
 ### 2. Live Q&A Presentation
-**Date**: September 4 Follow-up Call
 
 Be prepared to:
 - Present your solution in 3-4 minutes
@@ -205,37 +204,36 @@ week5-agent-solution/
 
 ## Timeline & Milestones
 
-### Day 1-2 (Aug 29-30): Problem Discovery
+### Problem Discovery
 - Identify and validate your problem
 - Research existing solutions
 - Define success metrics
 
-### Day 3-4 (Aug 31-Sep 1): Technical Implementation
+### Technical Implementation
 - Set up development environment
 - Build core agent functionality
 - Integrate required tools
 
-### Day 5-6 (Sep 2-3): Testing & Documentation
+### Testing & Documentation
 - Test with real data
 - Create video demonstration
 - Write comprehensive documentation
 
-### Day 7 (Sep 4): Presentation
+### Presentation
 - Upload final video
-- Present during live call
+- Present during live call(follow up call on either saturday/sunday)
 - Participate in peer discussions
 
 ## Getting Help
 
 ### Technical Support
-- **Office Hours**: Daily 6-8 PM PKT
-- **Discord Channel**: #week5-agents-help  
-- **Peer Reviews**: Scheduled for September 2
+- **Office Hours**: Daily 7-9 PM PKT
+- **Discord Channel**: #week5-agents-help
 
 ### Common Issues & Solutions
 - **API Rate Limits**: Implement exponential backoff
 - **Memory Management**: Use conversation summarization
-- **Tool Integration**: Check tool documentation thoroughly
+- **Tool Integration**: Check tool documentation thoroughlysss
 - **Performance Issues**: Optimize chunk sizes and queries
 
 ## Submission Checklist
