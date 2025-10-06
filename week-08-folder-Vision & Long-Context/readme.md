@@ -6,13 +6,12 @@ This week you’ll learn how to feed **images and long documents** into large la
 ## Resources
 * [Gemini Vision API Quickstart](https://ai.google.dev/tutorials/web_quickstart#multi_modal )
 * [GPT-4o Vision Guide – OpenAI Cookbook](https://github.com/openai/openai-cookbook/blob/main/examples/GPT_with_vision_for_video_understanding.ipynb )
-* [Long-Context Best Practices – Anthropic](https://www.anthropic.com/index/long-context-tips )
-* [Video: “Seeing with Language” – Google DeepMind](https://youtu.be/7pQ1c7fHN2k )
+* [Long-Context Best Practices – Anthropic](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/long-context-tips )
 * [PyPI: `pdf2image` & `Pillow` for image prep](https://pypi.org/project/pdf2image/ )
 
 ## Assignment
 **Do NOT rebuild the class demo.**  
-Instead, look around you—home, campus, workplace, community—and spot a **real-world pain-point** that can be solved by **combining images (or very long text) with an LLM**. Build a tiny, working prototype that proves the idea.
+Instead, look around you home, campus, workplace, community and spot a **real-world pain-point** that can be solved by **combining images (or very long text) with an LLM**. Build a tiny, working prototype that proves the idea.
 
 Need sparks?  
 * Snap photos of nutrition labels and ask the model to flag allergens for your roommate.  
