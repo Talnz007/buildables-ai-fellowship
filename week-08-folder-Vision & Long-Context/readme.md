@@ -1,37 +1,45 @@
-# Week 8 – Multimodal LLMs: Vision & Long-Context
+# Week 8 – No-Code AI Automation (Zapier, Make, n8n, or ANY Free Tool)
 
 ## Overview
-This week you’ll learn how to feed **images and long documents** into large language models (Gemini Pro Vision, GPT-4o, etc.) and extract insights that combine text + visual reasoning. You’ll also experiment with **very long context windows** to see how models handle multi-part questions across hundreds of pages.
+This week you’ll glue together **LLMs + everyday triggers**—emails, WhatsApp, cron, webhooks—using **ANY no-code platform you like**: Zapier, Make, Pabbly, IFTTT, Activepieces, self-hosted n8n, even Google AppSheet.  
+Goal: **automate a real Pakistani headache** without writing backend code and without spending a rupee.
 
 ## Resources
-* [Gemini Vision API Quickstart](https://ai.google.dev/tutorials/web_quickstart#multi_modal )
-* [GPT-4o Vision Guide – OpenAI Cookbook](https://github.com/openai/openai-cookbook/blob/main/examples/GPT_with_vision_for_video_understanding.ipynb )
-* [Long-Context Best Practices – Anthropic](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/long-context-tips )
-* [PyPI: `pdf2image` & `Pillow` for image prep](https://pypi.org/project/pdf2image/ )
+* [Zapier ChatGPT Integration – Urdu walk-through](https://www.youtube.com/watch?v=3tGpC3b9Kik)
+* [Make.com OpenAI Modules](https://www.make.com/en/help/app/openai)
+* [n8n on Raspberry Pi – local & free](https://docs.n8n.io/hosting/installation/npm/)
+* [Activepieces Cloud – 1 000 tasks/mo free](https://www.activepieces.com)
+* [Pabbly Connect – lifetime free internal tasks](https://www.pabbly.com/connect)
+* [Webhook vs Gmail Push – Pakistan 4G latency](https://propakistani.pk/how-to/webhook-vs-polling-pakistan/)
 
 ## Assignment
-**Do NOT rebuild the class demo.**  
-Instead, look around you home, campus, workplace, community and spot a **real-world pain-point** that can be solved by **combining images (or very long text) with an LLM**. Build a tiny, working prototype that proves the idea.
+**Do NOT clone the class demo.**  
+Pick **any no-code tool** (free tier or OSS) and build a **hands-off workflow** that solves a **local or personal problem** in Pakistan.  
+Your flow must run **at least once automatically** (trigger → LLM → action) and cost **zero PKR** on the free plan.
 
-Need sparks?  
-* Snap photos of nutrition labels and ask the model to flag allergens for your roommate.  
-* Feed the model a 100-page municipal report and create a 3-question chatbot for citizens.  
-* Photograph handwritten meeting notes, then let the model answer action-item questions.  
-* Upload a long group-chat export and generate a visual timeline of who promised what.  
-* Take pictures of birds on your feeder; ask the model to log species + count per day.
+Inspirational sparks (mix & match):
+* Hostel mess: daily JPG menu photo → Gemini Vision → Urdu summary → WhatsApp group.  
+* Load-shedding: scrape IESCO outage table → GPT-4 → SMS 30 min before your block.  
+* Ramazan sasta bazaar: Punjab gov PDF price list → LLM → cheapest 5 items → Telegram channel.  
+* Charity drive: handwritten donor sheet photo → LLM → Google Sheet + personalized Urdu thank-you SMS.  
+* Cricket fever: PCB RSS → LLM 3-line Urdu summary → auto-post to Facebook page.  
+* Family finances: screenshot of HBL debit alerts → LLM categorises → free Notion budget table updated.  
 
-**Submission Deadline:** 12/10/2025
+Feel free to **invent your own**; any trigger + any LLM + any action counts.
+
+**Submission Deadline:** DEADLINE_HERE
+
 ## Submission Guidelines
-1. GitHub repo (public or private link shared) containing:
-   - README with problem statement, setup steps, and demo GIF/screenshots  
-   - `requirements.txt` or `pyproject.toml`  
-   - Core script/notebook that runs end-to-end  
-2. 2-min Loom/video walkthrough (unlisted YouTube or direct MP4 link)  
-3. Short reflection (≤ 200 words) on biggest challenge & next improvement  
+1. **Public share-link** (or exported JSON / YAML) of your working flow.  
+2. **One-pager** (Google Doc or Notion) containing:
+   - Problem & target user  
+   - Tool chosen + why free tier is enough  
+   - Cost in PKR (show 0)  
+3. **60-second vertical screen-recording** showing trigger firing and final Urdu/English output on a Pakistani network.
 
 ## Optional Challenges
-* Support **multiple images in one query** (e.g., before/after, front/back).  
-* Add **caching** so repeated questions on the same long doc don’t re-cost tokens.  
-* Build a **Slack/Discord bot** that answers questions about uploaded images or PDFs.  
-* Compare **cost & latency** between Gemini Pro Vision and GPT-4o on identical inputs.  
-* Fine-tune **chunking strategy** to beat the model’s “lost-in-the-middle” recall issue.
+* **Self-host n8n** on a Raspberry Pi behind PTCL router (port-forward or Cloudflare tunnel).  
+* Add **error path**: if LLM fails, log to Airtable and send yourself a missed-call alert.  
+* Chain **two different free LLMs** (e.g., GPT-4 for summary → local Urdu model for ghazal caption).  
+* Expose an **Activepieces webhook** so classmates can trigger your flow with a simple POST.  
+* Benchmark **execution time & cost** between Zapier free, Make free, and self-hosted n8n for 50 runs.
