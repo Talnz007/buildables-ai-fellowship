@@ -1,46 +1,48 @@
-# Week 9 – Build & Deploy LLM Apps (FastAPI + Streamlit + Free Hosting)
+# Week 9–10 – Build & Deploy AI Agents (LangGraph + MCP + FastAPI + Streamlit)
 
 ## Overview
-Turn your prompt-engineering hacks into **shareable web products**.  
-You’ll containerise an LLM flow behind a FastAPI endpoint, wrap it in a **Streamlit chat UI**, and ship it to the internet on a **zero-rupee** plan (Railway, Render, Streamlit Cloud, Hugging Face Spaces, or any other free host).
+We’re taking the leap from “LLM apps” to **autonomous, context-aware AI agents**.  
+This two-week sprint combines Week 9 and 10 into one powerful build phase where you’ll create an agent that can **reason, retrieve, and act** using the **Model Context Protocol (MCP)** and **LangGraph**.  
+You’ll connect it to a **FastAPI backend**, wrap it in a **Streamlit (or any web)** interface, and **deploy it live** — because if it’s not deployed, it doesn’t exist.
 
 ## Resources
+* [MCP Docs – Model Context Protocol](https://modelcontextprotocol.io/)
+* [LangGraph Guide – Build Reactive AI Agents](https://langchain-ai.github.io/langgraph/)
 * [FastAPI Official Tutorial](https://fastapi.tiangolo.com/tutorial/)
 * [Streamlit Docs – Chat Elements](https://docs.streamlit.io/develop/api-reference/chat)
-* [Deploy FastAPI on Railway FREE](https://docs.railway.app/deploy/fastapi)
-* [Hugging Face Spaces – Streamlit Docker](https://huggingface.co/docs/hub/spaces-sdks-streamlit)
-* [Environment Secrets – keep your OpenAI key safe](https://docs.railway.app/guides/variables)
-* [Urdu/English Bilingual Chat Template](https://github.com/haseeb-heaven/UrduChatGPT)
+* [Deploy FastAPI on Render (Free)](https://render.com/docs/deploy-fastapi)
+* [Streamlit Cloud Deployment Guide](https://docs.streamlit.io/streamlit-cloud/get-started)
+* [Unsloth AI Fine-Tuning Notebook (Optional)](https://unsloth.ai/)
+* [Environment Secrets – keep your API keys safe](https://docs.railway.app/guides/variables)
 
 ## Assignment
 **DO NOT clone the class “hello-world” chatbot.**  
-Identify a **real pain-point** around you and build a **micro-SaaS** that solves it in ≤ 2 clicks.  
-Host it free, grab a public URL, and share with at least **three real users** for feedback.
+Build a **context-driven AI agent** that uses **MCP** to fetch or interact with external data (APIs, files, or tools).  
+Your system must:
+- Use **LangGraph** for reasoning flow.  
+- Expose a **FastAPI backend** to handle MCP context or API calls.  
+- Include a **Streamlit** or **Next.js + Vercel** frontend.  
+- Be **publicly deployed** on a free tier (Render, Streamlit Cloud, Hugging Face Spaces, or Vercel).  
 
-Inspirational sparks:
-* Hostel food rating: students type a dish name → LLM predicts “today’s taste score” → displays emoji meter.  
-* Pakistani startup law helper: upload page-1 of an SECP form → LLM fills the rest in Roman-Urdu → download PDF.  
-* Local cricket league: type ball-by-ball text commentary → LLM generates 30-second Urdu commentary audio (via free TTS) → play button.  
-* Family grocery: photo of fridge → LLM lists what’s missing + cheapest nearby store (scraped from Carrefour IKEA website).  
-* Hunza tourism: drop any landscape photo → LLM writes a 140-character Instagram caption in English + Urdu hashtags.  
+You may optionally:
+- Fine-tune a small model with **Unsloth AI** or use context-based tuning.  
+- Integrate your previous no-code automation (n8n/Zapier) through MCP.  
 
-Feel free to **invent your own** idea; anything that **calls an LLM** and is **usable via browser** counts.
-
-**Submission Deadline:** DEADLINE_HERE
+**Submission Deadline:** November 2, 2025
 
 ## Submission Guidelines
 1. **Public URL** (must open without VPN).  
 2. **GitHub repo** with:
-   - README (problem, demo GIF, local setup)  
-   - `requirements.txt` or `Dockerfile`  
-   - `app.py` (Streamlit) + `api.py` (FastAPI) if hybrid  
-3. **2-min Loom/video** showing:
-   - User landing → interaction → LLM answer → happy user.  
-4. **Feedback sheet** (Google Form) filled by ≥ 3 real users.
+   - README (problem statement, architecture, demo GIF, local setup).  
+   - `requirements.txt` or `Dockerfile`.  
+   - `app.py` (Streamlit UI) + `api.py` (FastAPI backend).  
+3. **2-min demo video** showing:
+   - User landing → interaction → agent reasoning → output.  
+4. **Reflection section** in README describing how MCP improved your agent’s context awareness.
 
 ## Optional Challenges
-* **Dockerise** the whole stack and push to Hugging Face Spaces (CPU free tier).  
-* Add **caching (Redis or in-memory)** so repeated questions don’t burn tokens.  
-* Implement **user login via Google** and store history in free Firebase.  
-* Support **Urdu speech-to-text** (Whisper API) and return spoken answers.  
-* Stress-test: handle 10 concurrent users with **async FastAPI** and report latency.
+* **Dockerise** the whole stack and host on Hugging Face Spaces (CPU free tier).  
+* Add **caching (Redis / in-memory)** for repeated queries.  
+* Implement **Google Login** and save chat history in Firebase/Supabase.  
+* Add **speech interface** using Whisper STT + Coqui TTS (Urdu/English).  
+* Perform a **stress test** with 10 concurrent users via async FastAPI and report latency.  
